@@ -1,31 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/11 13:17:15 by angrios           #+#    #+#             */
-/*   Updated: 2025/05/15 15:24:20 by angrios          ###   ########.fr       */
+/*   Created: 2025/05/14 07:31:53 by angrios           #+#    #+#             */
+/*   Updated: 2025/05/14 18:59:55 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-The function allocates memory for an array of NMEMB elements 
-of SIZE bytes each and returns a pointer to the allocated memory.
-The memory is set to zero.
-*/
-void	*ft_calloc(size_t nmemb, size_t size)
+static int	ft_intlen(int n)
 {
-	size_t	mem_size;
-	void	*space;
+	int	len;
 
-	mem_size = nmemb * size;
-	space = malloc(mem_size);
-	if (!space)
+	len = 0;
+	if (n <= 0)
+		len++;
+	while (n)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		len;
+	long	num;
+
+	len = ft_intlen(n);
+	num = n;
+	str = malloc((len + 1) * sizeof(char));
+	if (!str)
 		return (NULL);
-	ft_bzero(space, mem_size);
-	return (space);
+	str[len] = '\0';
+	if (num < 0)
+	{
+		str[0] = '-';
+		num *= -1;
+	}
+	while (num > 0)
+	{
+		str[--len] = (num % 10) + '0';
+		num /= 10;
+	}
+	if (n == 0)
+		str[0] = '0';
+	return (str);
 }

@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/11 13:17:15 by angrios           #+#    #+#             */
-/*   Updated: 2025/05/15 15:24:20 by angrios          ###   ########.fr       */
+/*   Created: 2025/05/14 17:12:57 by angrios           #+#    #+#             */
+/*   Updated: 2025/05/14 17:18:25 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-The function allocates memory for an array of NMEMB elements 
-of SIZE bytes each and returns a pointer to the allocated memory.
-The memory is set to zero.
-*/
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	mem_size;
-	void	*space;
-
-	mem_size = nmemb * size;
-	space = malloc(mem_size);
-	if (!space)
-		return (NULL);
-	ft_bzero(space, mem_size);
-	return (space);
+	if (n == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n = -n;
+	}
+	if (n >= 10)
+		ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd((n % 10) + '0', fd);
 }

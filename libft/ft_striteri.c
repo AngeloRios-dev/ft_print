@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/11 13:17:15 by angrios           #+#    #+#             */
-/*   Updated: 2025/05/15 15:24:20 by angrios          ###   ########.fr       */
+/*   Created: 2025/05/14 17:42:01 by angrios           #+#    #+#             */
+/*   Updated: 2025/05/14 18:34:35 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-The function allocates memory for an array of NMEMB elements 
-of SIZE bytes each and returns a pointer to the allocated memory.
-The memory is set to zero.
-*/
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	size_t	mem_size;
-	void	*space;
+	unsigned int	i;
 
-	mem_size = nmemb * size;
-	space = malloc(mem_size);
-	if (!space)
-		return (NULL);
-	ft_bzero(space, mem_size);
-	return (space);
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }

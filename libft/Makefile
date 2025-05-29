@@ -27,7 +27,14 @@ SRC = ft_isalpha.c \
 	ft_substr.c \
 	ft_strjoin.c \
 	ft_strtrim.c \
-	ft_split.c
+	ft_split.c \
+	ft_itoa.c \
+	ft_putchar_fd.c \
+	ft_putstr_fd.c \
+	ft_putnbr_fd.c \
+	ft_putendl_fd.c \
+	ft_striteri.c \
+	ft_strmapi.c
 OBJ = $(SRC:.c=.o)
 NAME = libft.a
 
@@ -43,3 +50,5 @@ fclean: clean
 	 rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re

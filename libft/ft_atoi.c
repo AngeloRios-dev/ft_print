@@ -6,9 +6,14 @@
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 18:30:45 by angrios           #+#    #+#             */
-/*   Updated: 2025/05/11 16:33:49 by angrios          ###   ########.fr       */
+/*   Updated: 2025/05/15 15:15:57 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+The function converts a character string to an integer value. 
+Example: "   123abcd" -> 123
+*/
 
 int	ft_atoi(const char *nptr)
 {
