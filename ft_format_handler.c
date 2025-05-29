@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   ft_format_handler.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/29 15:44:13 by angrios           #+#    #+#             */
-/*   Updated: 2025/05/29 15:48:14 by angrios          ###   ########.fr       */
+/*   Created: 2025/05/29 17:09:04 by angrios           #+#    #+#             */
+/*   Updated: 2025/05/29 20:08:58 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-# define HEADER_H
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
+# include "ft_printf.h"
 
-#endif
+int	ft_format_handler(char specifier, va_list args)
+{
+	if (specifier == 'c')
+		return (ft_char_handler((char)va_arg(args, int)));
+	else if (specifier == 's')
+	{
+		return (ft_string_handler((char *)va_arg(args, char *)));
+	}
+	return (0);
+}
