@@ -6,7 +6,7 @@
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 17:09:04 by angrios           #+#    #+#             */
-/*   Updated: 2025/05/29 20:08:58 by angrios          ###   ########.fr       */
+/*   Updated: 2025/05/30 14:06:24 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,7 @@ int	ft_format_handler(char specifier, va_list args)
 	{
 		return (ft_string_handler((char *)va_arg(args, char *)));
 	}
+	else if (specifier == 'p')
+		return (ft_ptr_handler(va_arg(args, void *)));
 	return (0);
 }

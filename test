@@ -1,0 +1,47 @@
+# Compilador y flags
+CC			= gcc
+CFLAGS		= -Wall -Wextra -Werror
+
+# Includes y rutas
+INCLUDE		= -I . -I ./libft
+
+# Libft
+LIBFT_DIR	= libft
+LIBFT_A		= $(LIBFT_DIR)/libft.a
+
+# Archivos fuente del printf
+SRC			= ft_printf.c \
+			ft_format_handler.c \
+			ft_str_handler.c \
+			ft_ptr_handler.c
+OBJ			= $(SRC:.c=.o)
+
+# Test
+TEST_SRC	= main.c
+TEST_OBJ	= $(TEST_SRC:.c=.o)
+TEST_EXEC	= test_printf
+
+# Regla por defecto
+all: $(TEST_EXEC)
+
+# Ejecutable de pruebas
+$(TEST_EXEC): $(OBJ) $(TEST_OBJ) $(LIBFT_A)
+	$(CC) $(CFLAGS) $(INCLUDE) $(OBJ) $(TEST_OBJ) $(LIBFT_A) -o $(TEST_EXEC)
+
+# Asegura que libft.a está compilada
+$(LIBFT_A):
+	@$(MAKE) -C $(LIBFT_DIR)
+
+# Limpieza
+clean:
+	rm -f $(OBJ) $(TEST_OBJ) $(TEST_EXEC)
+	@$(MAKE) clean -C $(LIBFT_DIR)
+
+fclean: clean
+	rm -f $(LIBFT_A)
+	@$(MAKE) fclean -C $(LIBFT_DIR)
+
+re: fclean all
+
+.PHONY: all clean fclean re
+
