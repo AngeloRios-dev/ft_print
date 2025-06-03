@@ -6,11 +6,11 @@
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 15:43:55 by angrios           #+#    #+#             */
-/*   Updated: 2025/05/29 19:18:58 by angrios          ###   ########.fr       */
+/*   Updated: 2025/06/03 16:33:52 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_printf(const char *format, ...)
 {
