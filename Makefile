@@ -13,10 +13,11 @@ OBJ		= $(SRC:.c=.o)
 all: $(NAME)
 
 # execute libft's makefile
-$(LIBFT)
-	@$(MAKE) -c libft --silent
+$(LIBFT):
+	@$(MAKE) -C libft --silent
 
 $(NAME): $(LIBFT) $(OBJ)
+	@cp $(LIBFT) $(NAME)
 	@$(AR) $(NAME) $(OBJ)
 
 clean:
