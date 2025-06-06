@@ -5,11 +5,10 @@ NAME	= libftprintf.a
 LIBFT	= libft/libft.a
 INCLUDE	= -I . -I./libft
 SRC		= ft_printf.c \
-		ft_char_handler.c \
-		ft_str_handler.c \
+		ft_num_handler.c \
+		ft_print_hex.c \
 		ft_ptr_handler.c \
-		ft_int_handler.c \
-		ft_unsigned_handler.c \
+		ft_strings_handler.c
 OBJ		= $(SRC:.c=.o)
 
 all: $(NAME)

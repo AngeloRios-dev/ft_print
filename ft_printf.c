@@ -6,7 +6,7 @@
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 15:43:55 by angrios           #+#    #+#             */
-/*   Updated: 2025/06/06 19:50:42 by angrios          ###   ########.fr       */
+/*   Updated: 2025/06/06 21:47:34 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,9 @@ static int	ft_format_handler(char specifier, va_list args)
 		return (ft_int_handler(va_arg(args, int)));
 	else if (specifier == 'u')
 		return (ft_unsigned_handler(va_arg(args, unsigned int)));
+	else if (specifier == 'x' || specifier == 'X')
+		return (ft_hex_handler(va_arg(args, unsigned int), specifier));
+	else if (specifier == '%')
+		ft_putchar_fd('%', 1);
 	return (0);
 }

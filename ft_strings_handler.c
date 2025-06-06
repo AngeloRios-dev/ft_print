@@ -1,16 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_handler.c                                   :+:      :+:    :+:   */
+/*   ft_strings_handler.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/29 19:33:24 by angrios           #+#    #+#             */
-/*   Updated: 2025/06/06 18:03:07 by angrios          ###   ########.fr       */
+/*   Created: 2025/06/06 21:21:17 by angrios           #+#    #+#             */
+/*   Updated: 2025/06/06 21:22:42 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_char_handler(char c)
+{
+	if (c)
+	{
+		ft_putchar_fd(c, 1);
+		return (1);
+	}
+	return (0);
+}
 
 int	ft_str_handler(char *str)
 {

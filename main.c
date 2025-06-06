@@ -92,6 +92,50 @@ int	main(void)
 	count2 = printf("og: unsigned max: %u\n", u3);
 	printf("=> Return: my = %d | og = %d\n\n", count1, count2);
 
+	// Test %x con 0
+	count1 = ft_printf("my: hex (x): %x\n", 0);
+	count2 = printf("og: hex (x): %x\n", 0);
+	printf("=> Return: my = %d | og = %d\n\n", count1, count2);
+
+	// Test %X con 0
+	count1 = ft_printf("my: hex (X): %X\n", 0);
+	count2 = printf("og: hex (X): %X\n", 0);
+	printf("=> Return: my = %d | og = %d\n\n", count1, count2);
+
+	// Test %x con número pequeño
+	count1 = ft_printf("my: hex (x): %x\n", 255);  // debería imprimir "ff"
+	count2 = printf("og: hex (x): %x\n", 255);
+	printf("=> Return: my = %d | og = %d\n\n", count1, count2);
+
+	// Test %X con número pequeño
+	count1 = ft_printf("my: hex (X): %X\n", 255);  // debería imprimir "FF"
+	count2 = printf("og: hex (X): %X\n", 255);
+	printf("=> Return: my = %d | og = %d\n\n", count1, count2);
+
+	// Test %x con número grande
+	count1 = ft_printf("my: hex (x): %x\n", 305441741);  // 0x1234ABCD
+	count2 = printf("og: hex (x): %x\n", 305441741);
+	printf("=> Return: my = %d | og = %d\n\n", count1, count2);
+
+	// Test %X con número grande
+	count1 = ft_printf("my: hex (X): %X\n", 305441741);
+	count2 = printf("og: hex (X): %X\n", 305441741);
+	printf("=> Return: my = %d | og = %d\n\n", count1, count2);
+
+	int	len;
+
+	// Test básico de %%
+	len = ft_printf("%%\n");
+	printf("Printed chars: %d\n", len);
+
+	// Test combinado con otros formatos
+	len = ft_printf("Valor: %d%% completado\n", 42);
+	printf("Printed chars: %d\n", len);
+
+	// Test consecutivo
+	len = ft_printf("%%%%\n");
+	printf("Printed chars: %d\n", len);
+
 	return (0);
 }
 
