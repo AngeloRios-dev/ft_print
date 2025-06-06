@@ -43,6 +43,35 @@ int	main(void)
 	count2 = printf("og: NULL pointer: %p\n", ptr);
 	printf("=> Return: my = %d | og = %d\n\n", count1, count2);
 
+	// Test 6: entero positivo
+	int pos = 123;
+	count1 = ft_printf("my: int: %d\n", pos);
+	count2 = printf("og: int: %d\n", pos);
+	printf("=> Return: my = %d | og = %d\n\n", count1, count2);
+
+	// Test 7: entero negativo
+	int neg = -456;
+	count1 = ft_printf("my: int: %d\n", neg);
+	count2 = printf("og: int: %d\n", neg);
+	printf("=> Return: my = %d | og = %d\n\n", count1, count2);
+
+	// Test 8: cero
+	int zero = 0;
+	count1 = ft_printf("my: int: %d\n", zero);
+	count2 = printf("og: int: %d\n", zero);
+	printf("=> Return: my = %d | og = %d\n\n", count1, count2);
+
+	// Test 9: INT_MAX
+	int max = 2147483647;
+	count1 = ft_printf("my: int: %d\n", max);
+	count2 = printf("og: int: %d\n", max);
+	printf("=> Return: my = %d | og = %d\n\n", count1, count2);
+
+	// Test 10: INT_MIN
+	int min = -2147483648;
+	count1 = ft_printf("my: int: %d\n", min);
+	count2 = printf("og: int: %d\n", min);
+	printf("=> Return: my = %d | og = %d\n\n", count1, count2);
 
 	return (0);
 }

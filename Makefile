@@ -7,7 +7,8 @@ INCLUDE	= -I . -I./libft
 SRC		= ft_format_handler.c \
 		ft_printf.c \
 		ft_str_handler.c \
-		ft_ptr_handler.c
+		ft_ptr_handler.c \
+		ft_num_handler.c
 OBJ		= $(SRC:.c=.o)
 
 all: $(NAME)
