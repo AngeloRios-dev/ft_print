@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_int_handler.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/29 15:44:13 by angrios           #+#    #+#             */
-/*   Updated: 2025/06/06 19:48:40 by angrios          ###   ########.fr       */
+/*   Created: 2025/06/06 10:48:44 by angrios           #+#    #+#             */
+/*   Updated: 2025/06/06 18:17:13 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include "libft/libft.h"
-# include <stdarg.h>
+#include "ft_printf.h"
 
-int	ft_printf(const char *format, ...);
-int	ft_char_handler(char c);
-int	ft_str_handler(char *str);
-int	ft_ptr_handler(void *ptr);
-int	ft_int_handler(int num);
-int	ft_unsigned_handler(unsigned int);
+int	ft_int_handler(int num)
+{
+	int		count;
+	long	temp;
 
-#endif
+	count = 0;
+	if (num == 0)
+		return (1);
+	if (num < 0)
+	{
+		count++;
+		temp = -(long)num;
+	}
+	else
+		temp = num;
+	while (temp > 0)
+	{
+		temp /= 10;
+		count++;
+	}
+	ft_putnbr_fd(num, 1);
+	return (count);
+}

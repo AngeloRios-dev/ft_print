@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_num_handler.c                                   :+:      :+:    :+:   */
+/*   ft_unsigned_handler.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/06 10:48:44 by angrios           #+#    #+#             */
-/*   Updated: 2025/06/06 11:28:56 by angrios          ###   ########.fr       */
+/*   Created: 2025/06/06 18:56:47 by angrios           #+#    #+#             */
+/*   Updated: 2025/06/06 19:26:20 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_int_handler(int num)
+static void	ft_print_unsigned(unsigned int n)
 {
-	int		count;
-	long	temp;
+	if (n >= 10)
+		ft_print_unsigned(n / 10);
+	ft_putchar_fd((n % 10) + '0', 1);
+}
 
-	count = 0;
+int	ft_unsigned_handler(unsigned int num)
+{
+	int				count;
+	unsigned int	temp;
+
 	if (num == 0)
-		return (1);
-	if (num < 0)
 	{
-		count++;
-		temp = -(long)num;
+		ft_putchar_fd('0', 1);
+		return (1);
 	}
-	else
-		temp = num;
+	count = 0;
+	temp = num;
 	while (temp > 0)
 	{
 		temp /= 10;
 		count++;
 	}
-	ft_putnbr_fd(num, 1);
+	ft_print_unsigned(num);
 	return (count);
 }

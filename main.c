@@ -73,6 +73,25 @@ int	main(void)
 	count2 = printf("og: int: %d\n", min);
 	printf("=> Return: my = %d | og = %d\n\n", count1, count2);
 
+	unsigned int	u1 = 0;
+	unsigned int	u2 = 42;
+	unsigned int	u3 = 4294967295;
+
+	// Test 11: número unsigned = 0
+	count1 = ft_printf("my: unsigned: %u\n", u1);
+	count2 = printf("og: unsigned: %u\n", u1);
+	printf("=> Return: my = %d | og = %d\n\n", count1, count2);
+
+	// Test 12: número unsigned = 42
+	count1 = ft_printf("my: unsigned: %u\n", u2);
+	count2 = printf("og: unsigned: %u\n", u2);
+	printf("=> Return: my = %d | og = %d\n\n", count1, count2);
+
+	// Test 13: número unsigned máximo
+	count1 = ft_printf("my: unsigned max: %u\n", u3);
+	count2 = printf("og: unsigned max: %u\n", u3);
+	printf("=> Return: my = %d | og = %d\n\n", count1, count2);
+
 	return (0);
 }
 

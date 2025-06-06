@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_handler.c                                :+:      :+:    :+:   */
+/*   ft_char_handler.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/29 17:09:04 by angrios           #+#    #+#             */
-/*   Updated: 2025/06/03 16:33:32 by angrios          ###   ########.fr       */
+/*   Created: 2025/05/29 19:33:24 by angrios           #+#    #+#             */
+/*   Updated: 2025/06/06 18:02:18 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_format_handler(char specifier, va_list args)
+int	ft_char_handler(char c)
 {
-	if (specifier == 'c')
-		return (ft_char_handler((char)va_arg(args, int)));
-	else if (specifier == 's')
+	if (c)
 	{
-		return (ft_string_handler((char *)va_arg(args, char *)));
+		ft_putchar_fd(c, 1);
+		return (1);
 	}
-	else if (specifier == 'p')
-		return (ft_ptr_handler(va_arg(args, void *)));
 	return (0);
 }

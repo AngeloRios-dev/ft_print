@@ -4,11 +4,12 @@ CFLAGS	= -Wall -Wextra -Werror
 NAME	= libftprintf.a
 LIBFT	= libft/libft.a
 INCLUDE	= -I . -I./libft
-SRC		= ft_format_handler.c \
-		ft_printf.c \
+SRC		= ft_printf.c \
+		ft_char_handler.c \
 		ft_str_handler.c \
 		ft_ptr_handler.c \
-		ft_num_handler.c
+		ft_int_handler.c \
+		ft_unsigned_handler.c \
 OBJ		= $(SRC:.c=.o)
 
 all: $(NAME)

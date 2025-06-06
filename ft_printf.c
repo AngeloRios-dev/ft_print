@@ -6,11 +6,13 @@
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 15:43:55 by angrios           #+#    #+#             */
-/*   Updated: 2025/06/03 16:33:52 by angrios          ###   ########.fr       */
+/*   Updated: 2025/06/06 19:50:42 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static int	ft_format_handler(char specifier, va_list args);
 
 int	ft_printf(const char *format, ...)
 {
@@ -37,4 +39,19 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(args);
 	return (printed_chars);
+}
+
+static int	ft_format_handler(char specifier, va_list args)
+{
+	if (specifier == 'c')
+		return (ft_char_handler((char)va_arg(args, int)));
+	else if (specifier == 's')
+		return (ft_str_handler(va_arg(args, char *)));
+	else if (specifier == 'p')
+		return (ft_ptr_handler(va_arg(args, void *)));
+	else if (specifier == 'd' || specifier == 'i')
+		return (ft_int_handler(va_arg(args, int)));
+	else if (specifier == 'u')
+		return (ft_unsigned_handler(va_arg(args, unsigned int)));
+	return (0);
 }
