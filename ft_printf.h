@@ -6,7 +6,7 @@
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 15:44:13 by angrios           #+#    #+#             */
-/*   Updated: 2025/06/06 20:46:34 by angrios          ###   ########.fr       */
+/*   Updated: 2025/06/07 19:04:39 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_char_handler(char c);
 int	ft_str_handler(char *str);
 int	ft_ptr_handler(void *ptr);
 int	ft_int_handler(int num);
-int	ft_unsigned_handler(unsigned int);
+int	ft_unsigned_handler(unsigned int num);
 int	ft_print_hex(unsigned long num, int x_type);
 int	ft_hex_handler(unsigned int num, char specifier);
 
