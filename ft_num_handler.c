@@ -6,7 +6,7 @@
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 21:25:23 by angrios           #+#    #+#             */
-/*   Updated: 2025/06/06 21:29:24 by angrios          ###   ########.fr       */
+/*   Updated: 2025/06/07 18:48:28 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_int_handler(int num)
 	}
 	ft_putnbr_fd(num, 1);
 	return (count);
-} 
+}
 
 static void	ft_print_unsigned(unsigned int n)
 {
