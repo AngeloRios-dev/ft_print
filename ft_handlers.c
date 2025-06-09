@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_num_handler.c                                   :+:      :+:    :+:   */
+/*   ft_handlers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 21:25:23 by angrios           #+#    #+#             */
-/*   Updated: 2025/06/07 18:49:07 by angrios          ###   ########.fr       */
+/*   Updated: 2025/06/09 16:14:50 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ int	ft_int_handler(int num)
 
 	count = 0;
 	if (num == 0)
+	{
+		ft_putchar_fd('0', 1);
 		return (1);
+	}
 	if (num < 0)
 	{
 		count++;
@@ -34,13 +37,6 @@ int	ft_int_handler(int num)
 	}
 	ft_putnbr_fd(num, 1);
 	return (count);
-}
-
-static void	ft_print_unsigned(unsigned int n)
-{
-	if (n >= 10)
-		ft_print_unsigned(n / 10);
-	ft_putchar_fd((n % 10) + '0', 1);
 }
 
 int	ft_unsigned_handler(unsigned int num)
@@ -78,5 +74,32 @@ int	ft_hex_handler(unsigned int num, char specifier)
 		count += ft_print_hex(num, 1);
 	else
 		count += ft_print_hex(num, 0);
+	return (count);
+}
+
+int	ft_str_handler(char *str)
+{
+	if (str == NULL)
+	{
+		ft_putstr_fd("(null)", 1);
+		return (6);
+	}
+	ft_putstr_fd(str, 1);
+	return (ft_strlen(str));
+}
+
+int	ft_ptr_handler(void *ptr)
+{
+	int				count;
+
+	if (ptr == NULL)
+	{
+		ft_putstr_fd("(nil)", 1);
+		return (5);
+	}
+	count = 0;
+	ft_putstr_fd("0x", 1);
+	count += 2;
+	count += ft_print_hex((unsigned long)ptr, 0);
 	return (count);
 }

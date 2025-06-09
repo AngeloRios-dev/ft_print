@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_hex.c                                     :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 20:11:05 by angrios           #+#    #+#             */
-/*   Updated: 2025/06/06 20:34:24 by angrios          ###   ########.fr       */
+/*   Updated: 2025/06/09 16:13:03 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,11 @@ int	ft_print_hex(unsigned long num, int is_uppercase)
 	else
 		ft_putchar_fd(lower_hex[num % 16], 1);
 	return (++count);
+}
+
+void	ft_print_unsigned(unsigned int n)
+{
+	if (n >= 10)
+		ft_print_unsigned(n / 10);
+	ft_putchar_fd((n % 10) + '0', 1);
 }

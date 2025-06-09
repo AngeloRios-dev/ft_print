@@ -6,7 +6,7 @@
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 15:43:55 by angrios           #+#    #+#             */
-/*   Updated: 2025/06/06 21:47:34 by angrios          ###   ########.fr       */
+/*   Updated: 2025/06/09 15:55:55 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,11 @@ int	ft_printf(const char *format, ...)
 static int	ft_format_handler(char specifier, va_list args)
 {
 	if (specifier == 'c')
-		return (ft_char_handler((char)va_arg(args, int)));
+	{
+		// return (ft_char_handler((char)va_arg(args, int)));
+		ft_putchar_fd((char)va_arg(args, int), 1);
+		return (1);
+	}
 	else if (specifier == 's')
 		return (ft_str_handler(va_arg(args, char *)));
 	else if (specifier == 'p')
@@ -56,6 +60,9 @@ static int	ft_format_handler(char specifier, va_list args)
 	else if (specifier == 'x' || specifier == 'X')
 		return (ft_hex_handler(va_arg(args, unsigned int), specifier));
 	else if (specifier == '%')
+	{
 		ft_putchar_fd('%', 1);
+		return (1);
+	}
 	return (0);
 }

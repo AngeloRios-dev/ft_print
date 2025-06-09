@@ -5,10 +5,8 @@ NAME	= libftprintf.a
 LIBFT	= libft/libft.a
 INCLUDE	= -I . -I./libft
 SRC		= ft_printf.c \
-		ft_num_handler.c \
-		ft_print_hex.c \
-		ft_ptr_handler.c \
-		ft_strings_handler.c
+		ft_handlers.c \
+		utils.c
 OBJ		= $(SRC:.c=.o)
 
 all: $(NAME)

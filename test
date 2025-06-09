@@ -11,10 +11,8 @@ LIBFT_A		= $(LIBFT_DIR)/libft.a
 
 # Archivos fuente del printf
 SRC			= ft_printf.c \
-			ft_num_handler.c \
-			ft_print_hex.c \
-			ft_ptr_handler.c \
-			ft_strings_handler.c 
+			ft_handlers.c \
+			utils.c 
 OBJ			= $(SRC:.c=.o)
 
 # Test
