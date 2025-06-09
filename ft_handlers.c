@@ -6,58 +6,88 @@
 /*   By: angrios <angrios@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 21:25:23 by angrios           #+#    #+#             */
-/*   Updated: 2025/06/09 16:14:50 by angrios          ###   ########.fr       */
+/*   Updated: 2025/06/09 17:33:20 by angrios          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+// int	ft_int_handler(int num)
+// {
+// 	int		count;
+// 	long	temp;
+
+// 	count = 0;
+// 	if (num == 0)
+// 	{
+// 		ft_putchar_fd('0', 1);
+// 		return (1);
+// 	}
+// 	if (num < 0)
+// 	{
+// 		count++;
+// 		temp = -(long)num;
+// 	}
+// 	else
+// 		temp = num;
+// 	while (temp > 0)
+// 	{
+// 		temp /= 10;
+// 		count++;
+// 	}
+// 	ft_putnbr_fd(num, 1);
+// 	return (count);
+// }
+
 int	ft_int_handler(int num)
 {
+	long	nb;
 	int		count;
-	long	temp;
 
+	nb = num;
 	count = 0;
-	if (num == 0)
+	if (nb < 0)
 	{
-		ft_putchar_fd('0', 1);
-		return (1);
-	}
-	if (num < 0)
-	{
-		count++;
-		temp = -(long)num;
-	}
-	else
-		temp = num;
-	while (temp > 0)
-	{
-		temp /= 10;
+		ft_putchar_fd('-', 1);
+		nb = -nb;
 		count++;
 	}
-	ft_putnbr_fd(num, 1);
-	return (count);
+	if (nb >= 10)
+		count += ft_int_handler(nb / 10);
+	ft_putchar_fd((nb % 10) + '0', 1);
+	return (++count);	
 }
+
+// int	ft_unsigned_handler(unsigned int num)
+// {
+// 	int				count;
+// 	unsigned int	temp;
+
+// 	if (num == 0)
+// 	{
+// 		ft_putchar_fd('0', 1);
+// 		return (1);
+// 	}
+// 	count = 0;
+// 	temp = num;
+// 	while (temp > 0)
+// 	{
+// 		temp /= 10;
+// 		count++;
+// 	}
+// 	ft_print_unsigned(num);
+// 	return (count);
+// }
 
 int	ft_unsigned_handler(unsigned int num)
 {
-	int				count;
-	unsigned int	temp;
+	int	count;
 
-	if (num == 0)
-	{
-		ft_putchar_fd('0', 1);
-		return (1);
-	}
 	count = 0;
-	temp = num;
-	while (temp > 0)
-	{
-		temp /= 10;
-		count++;
-	}
-	ft_print_unsigned(num);
-	return (count);
+	if (num >= 10)
+		count += ft_unsigned_handler(num / 10);
+	ft_putchar_fd((num % 10) + '0', 1);
+	return (++count);
 }
 
 int	ft_hex_handler(unsigned int num, char specifier)
